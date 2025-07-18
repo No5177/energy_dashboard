@@ -16,7 +16,13 @@ body {
 }
 
 /* 主容器布局 (1920x1080) */
-.header,
+.header {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 40px;
+}
+
 .main-content {
     max-width: 1920px;
     margin: 0 auto;
@@ -95,6 +101,7 @@ body {
 .main-content {
     padding: 30px 40px;
     min-height: calc(100vh - 100px);
+    margin-top: 10px;
 }
 
 /* 大卡片區域 */

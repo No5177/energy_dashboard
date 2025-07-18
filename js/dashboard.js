@@ -394,6 +394,11 @@ class Utils {
     }
 }
 
+// 全域函數
+function goToSettings() {
+    openSettingsModal();
+}
+
 // 初始化儀表板
 document.addEventListener('DOMContentLoaded', function() {
     window.energyDashboard = new EnergyDashboard();
@@ -421,6 +426,32 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.trees-number').textContent = Utils.formatLargeNumber(newValue);
         });
     });
+    
+    // 監聽來自設定頁面的訊息
+    window.addEventListener('message', function(event) {
+        if (event.data.type === 'updateSettings') {
+            const settings = event.data.settings;
+            // 更新工作站名稱
+            const stationNameElement = document.querySelector('.station-name h1');
+            if (stationNameElement && settings.workStationName) {
+                stationNameElement.textContent = settings.workStationName;
+            }
+        }
+    });
+    
+    // 載入儲存的設定
+    try {
+        const stored = localStorage.getItem('energyDashboardSettings');
+        if (stored) {
+            const settings = JSON.parse(stored);
+            const stationNameElement = document.querySelector('.station-name h1');
+            if (stationNameElement && settings.workStationName) {
+                stationNameElement.textContent = settings.workStationName;
+            }
+        }
+    } catch (error) {
+        console.warn('載入設定失敗:', error);
+    }
     
     console.log('Think Power 節能看板系統已載入完成');
 }); 

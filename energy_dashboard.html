@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>節能看板 - Think Power</title>
+    <link rel="stylesheet" href="css/energy_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 標題欄 -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <span class="leaf">🌱</span>
+                <span class="text">Think<br>Power</span>
+            </div>
+        </div>
+        <div class="station-name">
+            <h1>Work Station Name</h1>
+        </div>
+        <div class="datetime">
+            <div class="date" id="currentDate">yyyy/mm/dd</div>
+            <div class="time" id="currentTime">HH:MM:SS</div>
+        </div>
+    </header>
+
+    <!-- 主要內容區域 -->
+    <main class="main-content">
+        <!-- 大卡片區域 -->
+        <section class="big-cards">
+            <div class="big-card cost-savings">
+                <div class="card-header">
+                    <h3>Cost Savings</h3>
+                    <span class="trend-icon">▲</span>
+                </div>
+                <div class="card-value">
+                    <span class="value">88,900</span>
+                    <span class="unit">NT$</span>
+                </div>
+            </div>
+
+            <div class="big-card carbon-reduction">
+                <div class="card-header">
+                    <h3>Carbon Reduction</h3>
+                    <span class="trend-icon">▲</span>
+                </div>
+                <div class="card-value">
+                    <span class="value">5,620.09</span>
+                    <span class="unit">kg CO2e/kWh</span>
+                </div>
+            </div>
+
+            <div class="big-card reverse-power">
+                <div class="card-header">
+                    <h3>Reverse Active Power</h3>
+                    <span class="trend-icon">▲</span>
+                </div>
+                <div class="card-value">
+                    <span class="value">15,620.5</span>
+                    <span class="unit">kW</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 小卡片區域 -->
+        <section class="small-cards">
+            <div class="small-card">
+                <div class="card-label">Voltage</div>
+                <div class="card-value">220.5 <span class="unit">V</span></div>
+            </div>
+            <div class="small-card">
+                <div class="card-label">Current</div>
+                <div class="card-value">20.12 <span class="unit">A</span></div>
+            </div>
+            <div class="small-card">
+                <div class="card-label">Frequency</div>
+                <div class="card-value">60.0 <span class="unit">Hz</span></div>
+            </div>
+            <div class="small-card">
+                <div class="card-label">PF</div>
+                <div class="card-value">0.998</div>
+            </div>
+            <div class="small-card">
+                <div class="card-label">THD_V</div>
+                <div class="card-value">99.9 <span class="unit">%</span></div>
+            </div>
+            <div class="small-card">
+                <div class="card-label">THD_A</div>
+                <div class="card-value">1.9 <span class="unit">%</span></div>
+            </div>
+            <div class="small-card">
+                <div class="card-label">Daily Energy Usage</div>
+                <div class="card-value">9,999 <span class="unit">kW</span></div>
+            </div>
+            <div class="small-card">
+                <div class="card-label">Daily Energy</div>
+                <div class="card-value">8,888 <span class="unit">kW</span></div>
+            </div>
+        </section>
+
+        <!-- 圖表區域 -->
+        <section class="charts-container">
+            <!-- 上半部圖表 -->
+            <div class="charts-top">
+                <div class="chart-card daily-usage">
+                    <div class="chart-header">
+                        <h4>● Daily Energy Usage</h4>
+                    </div>
+                    <div class="chart-content">
+                        <canvas id="dailyUsageChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card daily-reclaimed">
+                    <div class="chart-header">
+                        <h4>● Daily Energy Reclaimed</h4>
+                    </div>
+                    <div class="chart-content">
+                        <canvas id="dailyReclaimedChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card trees-equivalent">
+                    <div class="chart-header">
+                        <h4>● Trees Planted Equivalent</h4>
+                    </div>
+                    <div class="trees-content">
+                        <div class="trees-number">9,999</div>
+                        <div class="trees-visual">
+                            <div class="trees-row">
+                                <span class="tree">🌳</span>
+                                <span class="tree">🌳</span>
+                                <span class="tree">🌳</span>
+                                <span class="tree">🌳</span>
+                                <span class="tree">🌳</span>
+                            </div>
+                            <div class="trees-row">
+                                <span class="tree">🌳</span>
+                                <span class="tree">🌳</span>
+                                <span class="tree">🌳</span>
+                                <span class="tree">🌳</span>
+                                <span class="tree">🌳</span>
+                            </div>
+                        </div>
+                        <div class="multiplier-scale">
+                            <div class="scale-item active">
+                                <div class="scale-dot"></div>
+                                <span>x1</span>
+                            </div>
+                            <div class="scale-item">
+                                <div class="scale-dot"></div>
+                                <span>x10</span>
+                            </div>
+                            <div class="scale-item">
+                                <div class="scale-dot"></div>
+                                <span>x100</span>
+                            </div>
+                            <div class="scale-item">
+                                <div class="scale-dot"></div>
+                                <span>x1000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 下半部大圖表 -->
+            <div class="charts-bottom">
+                <div class="chart-card large-chart energy-usage">
+                    <div class="chart-header">
+                        <h4>● Energy Usage</h4>
+                    </div>
+                    <div class="chart-content">
+                        <canvas id="energyUsageChart" width="800" height="300"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card large-chart energy-reclaimed">
+                    <div class="chart-header">
+                        <h4>● Energy Reclaimed</h4>
+                    </div>
+                    <div class="chart-content">
+                        <canvas id="energyReclaimedChart" width="800" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

@@ -1,0 +1,511 @@
+/* 全局樣式重置與基礎設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #0f1419 100%);
+    color: #ffffff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100vw;
+    line-height: 1.4;
+}
+
+/* 主容器布局 (1920x1080) */
+.header,
+.main-content {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* 標題欄樣式 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(26, 31, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100px;
+}
+
+/* Logo 樣式 */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+}
+
+.logo-icon .leaf {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.logo-icon .text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1.1;
+}
+
+/* 機架名稱 */
+.station-name h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* 時間顯示 */
+.datetime {
+    text-align: right;
+}
+
+.date {
+    font-size: 18px;
+    color: #bdc3c7;
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+
+.time {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+/* 主要內容區域 */
+.main-content {
+    padding: 30px 40px;
+    min-height: calc(100vh - 100px);
+}
+
+/* 大卡片區域 */
+.big-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.big-card {
+    background: rgba(26, 31, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 24px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.big-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: exclude;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+.cost-savings {
+    border-color: #f1c40f;
+    box-shadow: 0 8px 32px rgba(241, 196, 15, 0.2);
+}
+
+.carbon-reduction {
+    border-color: #27ae60;
+    box-shadow: 0 8px 32px rgba(39, 174, 96, 0.2);
+}
+
+.reverse-power {
+    border-color: #3498db;
+    box-shadow: 0 8px 32px rgba(52, 152, 219, 0.2);
+}
+
+.big-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #bdc3c7;
+}
+
+.trend-icon {
+    font-size: 16px;
+    color: #27ae60;
+}
+
+.big-card .card-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.big-card .value {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.big-card .unit {
+    font-size: 18px;
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+/* 小卡片區域 */
+.small-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.small-card {
+    background: rgba(26, 31, 46, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.small-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(241, 196, 15, 0.5);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+.small-card .card-label {
+    font-size: 14px;
+    color: #bdc3c7;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.small-card .card-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.small-card .unit {
+    font-size: 16px;
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+/* 圖表容器 */
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.charts-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    height: 280px;
+}
+
+.charts-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 360px;
+}
+
+.chart-card {
+    background: rgba(26, 31, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+    border-color: rgba(241, 196, 15, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.chart-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 20, 25, 0.5);
+}
+
+.chart-header h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.chart-header h4::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.daily-usage .chart-header h4::before {
+    background: #f1c40f;
+}
+
+.daily-reclaimed .chart-header h4::before {
+    background: #f39c12;
+}
+
+.trees-equivalent .chart-header h4::before {
+    background: #27ae60;
+}
+
+.energy-usage .chart-header h4::before {
+    background: #3498db;
+}
+
+.energy-reclaimed .chart-header h4::before {
+    background: #9b59b6;
+}
+
+.chart-content {
+    padding: 20px;
+    height: calc(100% - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-content canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 樹木等效區域特殊樣式 */
+.trees-content {
+    padding: 20px;
+    height: calc(100% - 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trees-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+.trees-visual {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.trees-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.tree {
+    font-size: 24px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.tree:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.multiplier-scale {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.scale-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scale-item:hover {
+    transform: translateY(-2px);
+}
+
+.scale-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #7f8c8d;
+    transition: all 0.3s ease;
+}
+
+.scale-item.active .scale-dot {
+    background: #f1c40f;
+    box-shadow: 0 0 12px rgba(241, 196, 15, 0.6);
+}
+
+.scale-item span {
+    font-size: 12px;
+    color: #bdc3c7;
+    font-weight: 500;
+}
+
+.scale-item.active span {
+    color: #f1c40f;
+}
+
+/* 響應式設計 */
+@media (max-width: 1600px) {
+    .header,
+    .main-content {
+        padding: 0 30px;
+    }
+    
+    .big-cards {
+        gap: 20px;
+    }
+    
+    .small-cards {
+        gap: 15px;
+    }
+    
+    .big-card .value {
+        font-size: 36px;
+    }
+    
+    .station-name h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .charts-top {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .charts-bottom {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .chart-card {
+        height: 300px;
+    }
+    
+    .small-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 16px;
+        height: auto;
+        padding: 20px;
+    }
+    
+    .big-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .small-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .station-name h1 {
+        font-size: 24px;
+    }
+    
+    .logo-icon .text {
+        font-size: 12px;
+    }
+}
+
+/* 動畫效果 */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.trend-icon {
+    animation: pulse 2s infinite;
+}
+
+/* 圖表預設樣式 */
+canvas {
+    background: transparent !important;
+}
+
+/* 滾動條樣式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(26, 31, 46, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(241, 196, 15, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(241, 196, 15, 0.7);
+} 

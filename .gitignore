@@ -1,0 +1,79 @@
+# 排除指定的目錄
+Proj/
+labview_proj/
+Example_v0/
+測試產物/
+參考資料/
+
+# Go 相關
+*.exe
+*.dll
+*.so
+*.dylib
+web_server
+web_server.exe
+*.test
+*.out
+go.work
+
+# 資料庫文件
+*.db
+*.sqlite
+*.sqlite3
+energy_data.db
+
+# 日誌文件
+*.log
+logs/
+
+# 編輯器和 IDE 文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 作業系統文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 暫存和建置文件
+tmp/
+temp/
+dist/
+build/
+node_modules/
+
+# 環境變數文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 備份文件
+*.bak
+*.backup
+*.old
+
+# 測試和覆蓋率報告
+coverage.txt
+coverage.html
+*.cover
+
+# 壓縮檔案
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# 執行檔案
+*.bin
+
+# Go module 下載暫存
+go.sum.backup 
